@@ -1,0 +1,26 @@
+.aside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    height: 100vh;
+    width: fit-content;
+    border-right: 1.5px solid black;
+}
+
+.figure{
+    font-size: 2rem;
+}
+
+.nav{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.2rem;
+
+    font-size: 1.5rem;
+    >svg{
+        cursor: pointer;
+    }
+}
