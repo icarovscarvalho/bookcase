@@ -10,13 +10,14 @@ export type pageState = "home" | "bookmark" | "contact" | "config"
 
 export function App() {
   const [page, setPage] = useState<pageState>("home")
+  const [search, setSearch] = useState<string>("")
 
   return (
     <>
       <div className="container">
         <Sidebar setPage={setPage} />
         <div className="right-side">
-          <Header page={page} />
+          <Header page={page} searchState={{search, setSearch}} />
           {page==="home" && <Home />}
           {page==="bookmark" && <Bookmark />}
           {page==="contact" && <Contact />}

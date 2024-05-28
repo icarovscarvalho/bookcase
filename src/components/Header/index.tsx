@@ -1,4 +1,5 @@
 import { pageState } from "../../App"
+import { Searchbar } from "../Searchbar";
 
 import { FaBookmark } from "react-icons/fa";
 import { GrContact } from "react-icons/gr";
@@ -6,7 +7,15 @@ import { IoSettings } from "react-icons/io5";
 
 import styles from "./styles.module.css"
 
-export function Header({page}:{page:pageState}) {
+interface HeaderProps{
+    page:pageState,
+    searchState:{
+        search:string,
+        setSearch:React.Dispatch<React.SetStateAction<string>>
+    }
+}
+
+export function Header({page, searchState}:HeaderProps) {
     return(
         <>
             <header className={styles.header}>
@@ -16,7 +25,7 @@ export function Header({page}:{page:pageState}) {
                     {page === "config" && <IoSettings />}
                 </div>}
                 <div className={styles.titleAndSearch}>
-                    {page === "home" && "searchbar"}
+                    {page === "home" && <Searchbar search={searchState.search} setSearch={searchState.setSearch} /> }
                     {page === "bookmark" && "Favoritos"}
                     {page === "contact" && "Sobre"}
                     {page === "config" && "Configurações"}
