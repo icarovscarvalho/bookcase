@@ -1,0 +1,23 @@
+.shelf{
+    display: flex;
+
+    >div{
+        height: 35px;
+    }
+
+    >:last-child {
+        transform: scaleX(-1);
+    }
+}
+
+.border{
+    width: 13px;
+    background-image: url("/images/WoodPlateBorder.png");
+    background-size: cover;
+}
+
+.base{
+    width: 400px;
+    background-image: url("/images/WoodPlateBase.png");
+    background-repeat: repeat-x;
+}
