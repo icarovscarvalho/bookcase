@@ -1,3 +1,7 @@
+:root{
+    --bookContainerSize:130px;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
