@@ -4,11 +4,14 @@ import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 interface BookShelfProps{
     books:BookProps[]
+    label:string
 }
 
-export function BookShelf({books}:BookShelfProps) {
+export function BookShelf({books, label}:BookShelfProps) {
+
     return(
-        <div>
+        // AQUI
+        <div className={styles.shelfContainer}>
             <div className={styles.shelf}>
                 <div className={styles.leftButton}>
                     <FaArrowCircleLeft />
@@ -22,7 +25,11 @@ export function BookShelf({books}:BookShelfProps) {
                     <FaArrowCircleRight />
                 </div>
             </div>
-            
+
+            <div className={styles.shelfLabel}>
+                <span>{label}</span>
+            </div>
+
             <div className={styles.carrosel}>
                 {books.map(book => (
 
