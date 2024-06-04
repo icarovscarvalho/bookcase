@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    max-width: 350px;
+    background-color: #9f7928;
+}
+
+.cover{
+    >img{
+        width: 80px;
+    }
+}
+
+.informations{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+
+.rateStar{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}

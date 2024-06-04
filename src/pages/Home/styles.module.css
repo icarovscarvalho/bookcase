@@ -1,0 +1,71 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    background-color: #F0EEE2;
+    color: #4a3222;
+    padding: 0 20px;
+}
+
+.welcome{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    >img{
+        width: 200px;
+    }
+
+    >button{
+        background-color: #28acec;
+        color: white;
+        font-weight: bold;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        box-shadow: 0 0 10px #00000089;
+    }
+}
+
+.bookSearchField{
+    flex: 1;
+    background: #FDFCF7;
+    border-radius: 7px 7px 0 0;
+    padding: 20px;
+}
+
+.titleBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    >h2{
+        padding: 20px;
+    }
+
+    >button{
+        background-color: #28acec;
+        color: white;
+        font-weight: bold;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        box-shadow: 0 0 10px #00000089;
+    }
+}
+
+.books{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+    background-color: tomato;
+    padding: 20px;
+}
