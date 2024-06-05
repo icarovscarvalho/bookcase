@@ -7,6 +7,8 @@
     height: 100vh;
     width: fit-content;
     border-right: 1px solid black;
+    background-color: #F0EEE2;
+    color: #4a3222;
 }
 
 .figure{

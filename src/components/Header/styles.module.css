@@ -5,6 +5,7 @@
 
     height: 4rem;
     contain: paint;
+    background-color: #F0EEE2;
 
     >div{
         display: flex;

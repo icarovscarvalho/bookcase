@@ -1,6 +1,21 @@
 import styles from "./styles.module.css"
 import openBook from "../../assets/images/openBook.svg"
-import {ColletionBook} from "../../components/ColletionBook";
+import {CollectionBook} from "../../components/CollectionBook";
+
+const prefix: string = "https://books.google.com/books/publisher/content/images/frontcover/";
+
+const bookObj = {
+    place: "1",
+    cover: `${prefix}ucYABAAAQBAJ?fife=w240-h345`,
+    title: "Os segredos de Colin blablablablablabla",
+    author: "Julia Quinn",
+    baseInfos: "Livro 4 - Romance",
+    starRate: "4,6"
+}
+
+const bookList = [
+    bookObj,bookObj,bookObj,bookObj,bookObj,bookObj,bookObj,bookObj,bookObj
+]
 
 export function Home(){
     return(
@@ -19,16 +34,7 @@ export function Home(){
                         <button>Veja mais</button>
                     </div>
                     <div className={styles.books}>
-                        <ColletionBook/>
-                        <ColletionBook/>
-                        <ColletionBook/>
-                        <ColletionBook/>
-                        <ColletionBook/>
-                        <ColletionBook/>
-                        <ColletionBook/>
-                        <ColletionBook/>
-                        <ColletionBook/>
-                        <ColletionBook/>
+                        {bookList.map((book, i) => <CollectionBook key={`cbc${i}`} data={book} />)}
                     </div>
                 </div>
             </main>
