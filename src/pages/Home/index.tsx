@@ -1,6 +1,7 @@
 import styles from "./styles.module.css"
 import openBook from "../../assets/images/openBook.svg"
 import {CollectionBook} from "../../components/CollectionBook";
+import {bestSellers} from "../../snipets/bestSellers.ts";
 
 const prefix: string = "https://books.google.com/books/publisher/content/images/frontcover/";
 
