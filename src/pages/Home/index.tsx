@@ -1,24 +1,13 @@
 import styles from "./styles.module.css"
 import openBook from "../../assets/images/openBook.svg"
-import {CollectionBook} from "../../components/CollectionBook";
-import {bestSellers} from "../../snipets/bestSellers.ts";
+import {CollectionBook, CollectionBookProps} from "../../components/CollectionBook";
 
-const prefix: string = "https://books.google.com/books/publisher/content/images/frontcover/";
-
-const bookObj = {
-    place: "1",
-    cover: `${prefix}ucYABAAAQBAJ?fife=w240-h345`,
-    title: "Os segredos de Colin blablablablablabla",
-    author: "Julia Quinn",
-    baseInfos: "Livro 4 - Romance",
-    starRate: "4,6"
+interface HomeProps{
+    bestSellers:CollectionBookProps[] | []
 }
 
-const bookList = [
-    bookObj,bookObj,bookObj,bookObj,bookObj,bookObj,bookObj,bookObj,bookObj
-]
-
-export function Home(){
+export function Home({bestSellers}:HomeProps) {
+    console.log('HomeProps', bestSellers)
     return(
         <>
             <main className={styles.main}>
@@ -35,7 +24,7 @@ export function Home(){
                         <button>Veja mais</button>
                     </div>
                     <div className={styles.books}>
-                        {bookList.map((book, i) => <CollectionBook key={`cbc${i}`} data={book} />)}
+                        {bestSellers?.map((book:CollectionBookProps) => <CollectionBook key={book.data.id} data={book.data} />)}
                     </div>
                 </div>
             </main>
