@@ -1,9 +1,13 @@
 import {BookType} from "../../@types/appTypes.ts";
+
 import {CollectionBook} from "../../components/CollectionBook";
-import styles from "./styles.module.css"
-import openBook from "../../assets/images/openBook.svg"
-import {buttonTerms, homeTerms} from "../../texts/terms.ts";
 import {Loading} from "../../uiComponents/Loading";
+
+import {buttonTerms, homeTerms} from "../../texts/terms.ts";
+
+import openBook from "../../assets/images/openBook.svg"
+
+import styles from "./styles.module.css"
 
 interface HomeProps {
   bookList: BookType[] | [],
@@ -11,7 +15,6 @@ interface HomeProps {
 }
 
 export function Home({bookList, isFetching}: HomeProps) {
-  console.log('HomeProps', bookList)
   return (
     <>
       <main className={styles.main}>
@@ -21,8 +24,6 @@ export function Home({bookList, isFetching}: HomeProps) {
               {isFetching?<Loading/>:<img src={openBook} alt="Imagem de livro aberto"/>}
             <button>{buttonTerms.suggestion}</button>
           </div>
-
-
         <div className={styles.bookSearchField}>
           <div className={styles.titleBar}>
             <h2>{homeTerms.trending}</h2>
