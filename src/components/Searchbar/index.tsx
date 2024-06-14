@@ -1,6 +1,8 @@
+import React from "react";
 import styles from "./styles.module.css"
 
 import { FaSearch } from "react-icons/fa";
+import {searchBarTerms} from "../../texts/terms.ts";
 
 interface searchBarProps{
     search:string,
@@ -16,7 +18,7 @@ export function Searchbar({search, setSearch}:searchBarProps) {
             type="search"
             name="searchbar"
             id="searchbar"
-            placeholder="Procurar por livro, autor ou edição"
+            placeholder={searchBarTerms.placeholder}
             onChange={(e) => {
                 setSearch(e.target.value)
             }}

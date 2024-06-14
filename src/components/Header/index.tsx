@@ -1,4 +1,6 @@
-import { pageState } from "../../App"
+import React from "react";
+
+import { pageState } from "../../@types/appTypes"
 import { Searchbar } from "../Searchbar";
 
 import { FaBookmark } from "react-icons/fa";

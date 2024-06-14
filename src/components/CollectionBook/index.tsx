@@ -1,38 +1,31 @@
 import { FaStar } from "react-icons/fa6";
 import styles from "./styles.module.css"
+import {BookType} from "../../@types/appTypes.ts";
 
-export interface CollectionBookProps {
-    data: {
-        id:string,
-        place: number,
-        cover: string,
-        title: string,
-        author: string[],
-        baseInfos: string,
-        starRate: number
-    }
+interface CollectionBookProps {
+    bookData: BookType
 }
 
-export function CollectionBook({data}:CollectionBookProps) {
-        console.log('Collection Book Components:', data)
+export function CollectionBook({bookData}:CollectionBookProps) {
+        console.log('Collection Book Components:', bookData)
 
     return(
         <>
             <div className={styles.container}>
-                <p className={styles.place}>{data.place}.</p>
+                <p className={styles.place}>{bookData.place}.</p>
 
                 <div className={styles.cover}>
                     <img
-                        src={data.cover} alt="Capa do Livro"/>
+                        src={bookData.cover} alt="Capa do Livro"/>
                 </div>
 
                 <div className={styles.bookInfos}>
-                    <h3>{data.title}</h3>
-                    <p>{data.author}</p>
-                    <p>{data.baseInfos}</p>
+                    <h3>{bookData.title}</h3>
+                    <p>{bookData.authors[0]}</p>
+                    <p>{bookData.baseInfos}</p>
                     <div className={styles.rateStar}>
                         <FaStar/>
-                        <p>{data.starRate}</p>
+                        <p>{bookData.starRate}</p>
                     </div>
                 </div>
 

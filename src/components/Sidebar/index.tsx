@@ -1,10 +1,10 @@
-import {FaBookOpen} from 'react-icons/fa6'
-import { FaHome } from "react-icons/fa";
-import { IoSettings } from "react-icons/io5";
-import { GrContact } from "react-icons/gr";
-import styles from './styles.module.css';
 import React from 'react';
-import { pageState } from '../../App';
+import {pageState} from "../../@types/appTypes.ts";
+import styles from './styles.module.css';
+import {FaBookOpen} from 'react-icons/fa6'
+import {FaHome} from "react-icons/fa";
+import {IoSettings} from "react-icons/io5";
+import {GrContact} from "react-icons/gr";
 
 interface SidebarProps{
     setPage:React.Dispatch<React.SetStateAction<pageState>>

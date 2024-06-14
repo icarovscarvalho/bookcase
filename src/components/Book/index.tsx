@@ -1,17 +1,11 @@
 import styles from "./styles.module.css"
+import {BookType} from "../../@types/appTypes.ts";
 
-export interface BookProps {
-    id:string,
-    title:string,
-    imgSrc:string
-}
-
-export function Book({id, title, imgSrc}:BookProps) {
-
+export function Book({cover}:BookType) {
     return(
         <>
-            <div alt={title} className={styles.book}>
-                <div className={styles.cover} style={{backgroundImage:`url('${imgSrc}')` }} />
+            <div className={styles.book}>
+                <div className={styles.cover} style={{backgroundImage:`url('${cover}')` }} />
             </div>
         </>
     )
