@@ -6,17 +6,18 @@ export async function getBook(name: string, place: number) {
     const rawData = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${name}&maxResults=1`);
     const jsonData = await rawData.json();
     const list = jsonData.items;
-    const book = list[0] || null // inserida verificação para não receber "undefined"
-    const r: BookType = {
-      place: place,
-      id: book.id,
-      cover: book.volumeInfo.imageLinks.thumbnail,
-      title: book.volumeInfo.title,
-      authors: book.volumeInfo.authors,
-      baseInfos: book.volumeInfo.categories[0],
-      starRate: book.volumeInfo.averageRating
-    }
-    return r
+    const bookList:BookType[] | [] = list.map((book: BookFetchType) => {
+      return {
+        place: place,
+        id: book.id,
+        cover: book.volumeInfo.imageLinks.thumbnail,
+        title: book.volumeInfo.title,
+        authors: book.volumeInfo.authors,
+        baseInfos: book.volumeInfo.categories[0],
+        starRate: book.volumeInfo.averageRating
+      }
+    })
+    return bookList
   } catch (e) {
     console.log(e)
   }
