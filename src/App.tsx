@@ -10,6 +10,7 @@ import {Home} from "./pages/Home";
 import {Bookmark} from "./pages/Bookmark";
 import {Contact} from "./pages/Contact";
 import {Config} from "./pages/Config";
+import {Details} from "./pages/Details";
 
 export function App() {
   const fetchOnce = useRef(false);
@@ -33,10 +34,13 @@ export function App() {
         <div className="right-side">
           <Header page={page} searchState={{search, setSearch}}/>
           <div className="content">
-            {page === "home" && <Home bookList={bookList} isFetching={isFetching}/>}
+            {page === "home" && <Home bookList={bookList}
+                                      isFetching={isFetching}
+                                      setPage={setPage}/>}
             {page === "bookmark" && <Bookmark/>}
             {page === "contact" && <Contact/>}
             {page === "config" && <Config/>}
+            {page === "details" && <Details/>}
           </div>
         </div>
       </div>

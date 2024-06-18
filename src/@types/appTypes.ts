@@ -1,4 +1,4 @@
-export type pageState = "home" | "bookmark" | "contact" | "config"
+export type pageState = "home" | "bookmark" | "contact" | "config" | "details"
 
 export type BookType = {
   place?: number,

@@ -1,4 +1,4 @@
-import {BookType} from "../../@types/appTypes.ts";
+import {BookType, pageState} from "../../@types/appTypes.ts";
 
 import {CollectionBook} from "../../components/CollectionBook";
 import {Loading} from "../../uiComponents/Loading";
@@ -8,13 +8,15 @@ import {buttonTerms, homeTerms} from "../../texts/terms.ts";
 import openBook from "../../assets/images/openBook.svg"
 
 import styles from "./styles.module.css"
+import React from "react";
 
 interface HomeProps {
   bookList: BookType[] | [],
   isFetching: boolean,
+  setPage:React.Dispatch<React.SetStateAction<pageState>>
 }
 
-export function Home({bookList, isFetching}: HomeProps) {
+export function Home({bookList, isFetching, setPage}: HomeProps) {
   return (
     <>
       <main className={styles.main}>
@@ -27,7 +29,7 @@ export function Home({bookList, isFetching}: HomeProps) {
         <div className={styles.bookSearchField}>
           <div className={styles.titleBar}>
             <h2>{homeTerms.trending}</h2>
-            <button>{buttonTerms.more}</button>
+            <button onClick={()=> setPage("details")}>{buttonTerms.more}</button>
           </div>
           <div className={styles.books}>
             {bookList?.map((book: BookType) => <CollectionBook key={book.id} bookData={book}/>)}
