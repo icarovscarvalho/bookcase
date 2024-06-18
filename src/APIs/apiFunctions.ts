@@ -1,14 +1,13 @@
 import {BookFetchType, BookType} from "../@types/appTypes.ts";
 import {googleBooksFetchBestSellersURL} from "./apiVars.ts";
 
-export async function getBook(name: string, place: number) {
+export async function getBook(name: string, maxResults: number = 1) {
   try {
-    const rawData = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${name}&maxResults=1`);
+    const rawData = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${name}&maxResults=${maxResults}`);
     const jsonData = await rawData.json();
     const list = jsonData.items;
     const bookList:BookType[] | [] = list.map((book: BookFetchType) => {
       return {
-        place: place,
         id: book.id,
         cover: book.volumeInfo.imageLinks.thumbnail,
         title: book.volumeInfo.title,
@@ -17,15 +16,15 @@ export async function getBook(name: string, place: number) {
         starRate: book.volumeInfo.averageRating
       }
     })
-    return bookList
+    return bookList || []
   } catch (e) {
     console.log(e)
   }
 }
 
-export async function getBookList(list: string[]) {
+export async function getBookList(list: string[], maxResult:number) {
   try {
-    const promises = list.map(async (bookName, index) => await getBook(bookName, index + 1))
+    const promises = list.map(async bookName => await getBook(bookName, maxResult) || [])
     return await Promise.all(promises);
   } catch (e) {
     console.log(e)

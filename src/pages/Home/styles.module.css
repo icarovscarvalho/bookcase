@@ -10,7 +10,6 @@
 
 .welcome{
     display: flex;
-    flex: 1;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -18,7 +17,7 @@
     margin-bottom: 20px;
 
     >img{
-        width: 200px;
+        height: 100px;
     }
 
     >button{
@@ -37,6 +36,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background: #FDFCF7;
     border-radius: 7px 7px 0 0;
     padding: 20px 20px 0;
@@ -44,9 +44,9 @@
 
 .titleBar{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 
     >h2{
         padding: 20px;
@@ -65,10 +65,9 @@
 }
 
 .books{
-    flex: 1;
     display: flex;
-    flex-direction: row;
     gap: 20px;
     flex-wrap: wrap;
+    width: fit-content;
     padding: 20px;
 }
