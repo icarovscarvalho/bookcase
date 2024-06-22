@@ -39,11 +39,15 @@
         background-size: cover;
 
         >.coverImg{
-            height: 222px;
-            width: 164px;
+            height: 18.5vw;
+            min-height: 222px;
+            max-height: 352px;
+            width: 13.5vw;
+            min-width: 164px;
+            max-width: 260px;
             background-size: cover;
             background-repeat: no-repeat;
-            background-position: center;
+            background-position: center center;
             background-color: tomato;
         }
 
