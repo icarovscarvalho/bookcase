@@ -27,16 +27,22 @@ export function Home({bookList, isFetching, setPage, setDetailed}: HomeProps) {
               {isFetching?<Loading/>:<img src={openBook} alt="Imagem de livro aberto"/>}
             <button>{buttonTerms.suggestion}</button>
           </div>
-        <div className={styles.bookSearchField}>
-          <div className={styles.titleBar}>
+        <div
+          className={styles.bookSearchField}>
+          <div
+            className={styles.titleBar}>
             <h2>{homeTerms.trending}</h2>
-            <button onClick={()=> setPage("details")}>{buttonTerms.more}</button>
+            <button
+              onClick={() => setPage("details")}>{buttonTerms.more}</button>
           </div>
-          <div className={styles.books}>
-            {bookList?.map((book: BookType) => <CollectionBook key={book.id}
-                                                               bookData={book}
-                                                               setDetailed={setDetailed}
-            />)}
+          <div
+            className={styles.books}>
+            {bookList?.map((book: BookType) =>
+              <CollectionBook
+                key={book.id}
+                bookData={book}
+                setDetailed={setDetailed}
+              />)}
           </div>
         </div>
       </main>

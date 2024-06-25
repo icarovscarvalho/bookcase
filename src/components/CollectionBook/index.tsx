@@ -32,7 +32,6 @@ export function CollectionBook({bookData, setDetailed}: CollectionBookProps) {
             <p>{bookData.starRate}</p>
           </div>
         </div>
-
       </div>
     </>
   )

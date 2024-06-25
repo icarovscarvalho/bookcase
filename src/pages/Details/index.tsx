@@ -9,28 +9,49 @@ import {
 
 // const imgTest = "https://books.google.com/books/publisher/content/images/frontcover/VLg-EAAAQBAJ?fife=w240-h345"
 
-export function Details({cover, title, authors, shortDescription, description}:BookType) {
+export function Details({cover, title, authors, description}:BookType) {
   return(
     <>
       <div className={styles.container}>
         <section className={styles.top}>
-          <nav className={styles.nav}>
-            <IoArrowUpCircleOutline />
-            <IoArrowDownCircleOutline />
+          <nav
+            className={styles.nav}>
+            <IoArrowUpCircleOutline/>
+            <IoArrowDownCircleOutline/>
           </nav>
-          <div className={styles.book}>
-            <div className={styles.coverImg} style={{backgroundImage: `url(${cover})`}} />
+          {/*<div className={styles.coverImg} style={{backgroundImage: `url(${cover})`}} />*/}
+          <div
+            className={styles.scene}>
+            <div
+              className={styles.book}>
+              <div
+                className={`${styles.face} ${styles.front} `} style={{backgroundImage: `url(${cover})`}}></div>
+              <div
+                className={`${styles.face} ${styles.back}`}></div>
+              <div
+                className={`${styles.face} ${styles.left}`}></div>
+              <div
+                className={`${styles.face} ${styles.right}`}></div>
+              <div
+                className={`${styles.face} ${styles.topView}`}></div>
+              <div
+                className={`${styles.face} ${styles.bottomView}`}></div>
+            </div>
           </div>
-          <div className={styles.info}>
+          <div
+            className={styles.info}>
             <h1>{title}</h1>
             <p>{authors}</p>
             {/*<p>{shortDescription}</p> Google API doesn't assist it*/}
-            <div className={styles.trick} />
+            <div
+              className={styles.trick}/>
           </div>
         </section>
 
-        <section className={styles.bottom}>
-          <div className={styles.description}>
+        <section
+          className={styles.bottom}>
+          <div
+            className={styles.description}>
             <h2>Description</h2>
             <div>
               <p>{description}</p>
