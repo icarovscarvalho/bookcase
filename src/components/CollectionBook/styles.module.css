@@ -4,12 +4,30 @@
     gap: 10px;
 
     width: 330px;
+    cursor: pointer;
+    transition: .2s;
+    perspective: 1000px;
+
+    >.cover{
+        filter: drop-shadow(2px 2px 1px #000b);
+    }
+
+    &:hover{
+        transform: scale(1.05);
+        filter: drop-shadow(5px 10px 4px #0008);
+
+        >.cover {
+            filter: drop-shadow(5px 0 0 #dddf);
+            transform: rotateY(-25deg);
+        }
+    }
 }
 
 .cover{
     >img{
         width: 80px;
     }
+    transition: .3s;
 }
 
 .bookInfos{

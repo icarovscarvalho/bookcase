@@ -1,5 +1,8 @@
 import React from 'react';
-import {pageState} from "../../@types/appTypes.ts";
+import {
+    BookType,
+    pageState
+} from "../../@types/appTypes.ts";
 import styles from './styles.module.css';
 import {FaBookOpen} from 'react-icons/fa6'
 import {FaHome} from "react-icons/fa";
@@ -8,12 +11,14 @@ import {GrContact} from "react-icons/gr";
 
 interface SidebarProps{
     setPage:React.Dispatch<React.SetStateAction<pageState>>
+    setDetailed:React.Dispatch<React.SetStateAction<BookType|null>>
 }
 
-export function Sidebar({setPage}:SidebarProps) {
+export function Sidebar({setPage, setDetailed}:SidebarProps) {
 
     function handleSetPage(page:pageState) {
         setPage(page)
+        setDetailed(null)
     }
 
     return(

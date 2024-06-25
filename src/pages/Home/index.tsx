@@ -14,9 +14,10 @@ interface HomeProps {
   bookList: BookType[] | [],
   isFetching: boolean,
   setPage:React.Dispatch<React.SetStateAction<pageState>>
+  setDetailed:React.Dispatch<React.SetStateAction<BookType>>
 }
 
-export function Home({bookList, isFetching, setPage}: HomeProps) {
+export function Home({bookList, isFetching, setPage, setDetailed}: HomeProps) {
   return (
     <>
       <main className={styles.main}>
@@ -32,7 +33,10 @@ export function Home({bookList, isFetching, setPage}: HomeProps) {
             <button onClick={()=> setPage("details")}>{buttonTerms.more}</button>
           </div>
           <div className={styles.books}>
-            {bookList?.map((book: BookType) => <CollectionBook key={book.id} bookData={book}/>)}
+            {bookList?.map((book: BookType) => <CollectionBook key={book.id}
+                                                               bookData={book}
+                                                               setDetailed={setDetailed}
+            />)}
           </div>
         </div>
       </main>

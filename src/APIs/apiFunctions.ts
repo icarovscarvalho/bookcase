@@ -32,12 +32,14 @@ export async function getBookList(list: string[], maxResult:number) {
 }
 
 export async function getBestSellersShelf() {
+  console.log(googleBooksFetchBestSellersURL)
   try {
     const rawData = await fetch(`${googleBooksFetchBestSellersURL}`);
     const jsonData = await rawData.json();
     console.log(jsonData);
     const list = jsonData.items;
     const bookList: BookType[] = list.map((book: BookFetchType, i: number) => {
+      console.log(book)
       return {
         place: i + 1,
         id: book.id,
@@ -45,7 +47,10 @@ export async function getBestSellersShelf() {
         title: book.volumeInfo.title,
         authors: book.volumeInfo.authors,
         baseInfos: book.volumeInfo.categories[0],
-        starRate: book.volumeInfo.averageRating
+        starRate: book.volumeInfo.averageRating,
+        description: book.volumeInfo.description,
+        // shortDescription: book.searchInfo.textSnippet,
+        shortDescription: "book.searchInfo.textSnippet",
       }
     })
     return bookList

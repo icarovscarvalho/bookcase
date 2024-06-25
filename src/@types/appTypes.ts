@@ -8,6 +8,8 @@ export type BookType = {
   authors: string[],
   baseInfos: string,
   starRate: number
+  description: string,
+  shortDescription: string,
 }
 
 export type BookFetchType = {
@@ -18,6 +20,10 @@ export type BookFetchType = {
     cover: string,
     authors: string[],
     categories: string[],
-    averageRating: string
+    averageRating: string,
+    description: string
+  },
+  searchInfo:{
+    textSnippet: string
   }
 }
