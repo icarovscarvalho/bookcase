@@ -7,13 +7,14 @@ import React from "react";
 
 interface CollectionBookProps {
   bookData: BookType,
-  setDetailed:React.Dispatch<React.SetStateAction<BookType>>
+  setDetailed:React.Dispatch<React.SetStateAction<number|null>>,
+  index:number
 }
 
-export function CollectionBook({bookData, setDetailed}: CollectionBookProps) {
+export function CollectionBook({bookData, setDetailed, index}: CollectionBookProps) {
 
   function handleBookClick () {
-    setDetailed(bookData)
+    setDetailed(index)
   }
 
   return (

@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    BookType,
     pageState
 } from "../../@types/appTypes.ts";
 import styles from './styles.module.css';
@@ -11,7 +10,7 @@ import {GrContact} from "react-icons/gr";
 
 interface SidebarProps{
     setPage:React.Dispatch<React.SetStateAction<pageState>>
-    setDetailed:React.Dispatch<React.SetStateAction<BookType|null>>
+    setDetailed:React.Dispatch<React.SetStateAction<number|null>>
 }
 
 export function Sidebar({setPage, setDetailed}:SidebarProps) {

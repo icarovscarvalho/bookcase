@@ -1,4 +1,4 @@
-import {BookType, pageState} from "../../@types/appTypes.ts";
+import {BookType} from "../../@types/appTypes.ts";
 
 import {CollectionBook} from "../../components/CollectionBook";
 import {Loading} from "../../uiComponents/Loading";
@@ -13,11 +13,10 @@ import React from "react";
 interface HomeProps {
   bookList: BookType[] | [],
   isFetching: boolean,
-  setPage:React.Dispatch<React.SetStateAction<pageState>>
-  setDetailed:React.Dispatch<React.SetStateAction<BookType>>
+  setDetailed:React.Dispatch<React.SetStateAction<number|null>>
 }
 
-export function Home({bookList, isFetching, setPage, setDetailed}: HomeProps) {
+export function Home({bookList, isFetching, setDetailed}: HomeProps) {
   return (
     <>
       <main className={styles.main}>
@@ -32,16 +31,18 @@ export function Home({bookList, isFetching, setPage, setDetailed}: HomeProps) {
           <div
             className={styles.titleBar}>
             <h2>{homeTerms.trending}</h2>
-            <button
-              onClick={() => setPage("details")}>{buttonTerms.more}</button>
+            <button>
+              {buttonTerms.more}
+            </button>
           </div>
           <div
             className={styles.books}>
-            {bookList?.map((book: BookType) =>
+            {bookList?.map((book: BookType, index:number) =>
               <CollectionBook
                 key={book.id}
                 bookData={book}
                 setDetailed={setDetailed}
+                index={index}
               />)}
           </div>
         </div>

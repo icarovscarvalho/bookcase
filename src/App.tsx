@@ -15,7 +15,7 @@ import {Details} from "./pages/Details";
 export function App() {
   const fetchOnce = useRef(false);
   const [bookList, setBookList] = useState<BookType[] | []>([]);
-  const [detailed, setDetailed] = useState<BookType | null>(null);
+  const [detailed, setDetailed] = useState<number | null>(null);
   const [isFetching, setIsFetching] = useState<boolean>(false);
   const [page, setPage] = useState<pageState>("home")
   const [search, setSearch] = useState<string>("")
@@ -39,10 +39,9 @@ export function App() {
         <div className="right-side">
           <Header page={page} searchState={{search, setSearch}}/>
           <div className="content">
-            {detailed ? <Details {...detailed} />
+            {detailed !== null ? <Details {...bookList[detailed]} />
               : page === "home" ? <Home bookList={bookList}
                                       isFetching={isFetching}
-                                      setPage={setPage}
                                       setDetailed={setDetailed}
               />:
               page === "bookmark" ? <Bookmark/> :
