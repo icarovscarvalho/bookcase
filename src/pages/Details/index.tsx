@@ -5,16 +5,44 @@ import {IoDownloadOutline} from "react-icons/io5";
 import {MdArrowOutward} from "react-icons/md";
 import {BookType} from "../../@types/appTypes.ts";
 import {Book3D} from "../../components/Book3D";
+import React from "react";
 
-export function Details({cover, title, authors, description}: BookType) {
+interface DetailsTypes extends BookType{
+  setDetailed:React.Dispatch<React.SetStateAction<number|null>>,
+  length:number
+}
+
+export function Details({cover, title, authors, description, setDetailed, length}: DetailsTypes) {
+  function handleArrowUp() {
+    setDetailed(prevState => {
+      const newValue = prevState! -1;
+      if(newValue >= 0) {
+        return newValue
+      }else{
+        return prevState
+      }
+    });
+  }
+
+  function handleArrowDown() {
+    setDetailed(prevState => {
+      const newValue = prevState! +1;
+      if(newValue < length) {
+        return newValue
+      }else{
+        return prevState
+      }
+    });
+  }
+
   return (
     <>
       <div className={styles.container}>
         <section className={styles.top}>
           <nav
             className={styles.nav}>
-            <IoArrowUpCircleOutline/>
-            <IoArrowDownCircleOutline/>
+            <IoArrowUpCircleOutline onClick={handleArrowUp}/>
+            <IoArrowDownCircleOutline onClick={handleArrowDown}/>
           </nav>
           {<Book3D cover={cover}/>}
           <div

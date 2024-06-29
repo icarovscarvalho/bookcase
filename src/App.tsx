@@ -39,7 +39,10 @@ export function App() {
         <div className="right-side">
           <Header page={page} searchState={{search, setSearch}}/>
           <div className="content">
-            {detailed !== null ? <Details {...bookList[detailed]} />
+            {detailed !== null ? <Details {...bookList[detailed]}
+                                          setDetailed={setDetailed}
+                                          length={bookList.length}
+                                          index={detailed} />
               : page === "home" ? <Home bookList={bookList}
                                       isFetching={isFetching}
                                       setDetailed={setDetailed}
