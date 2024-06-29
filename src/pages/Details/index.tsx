@@ -9,10 +9,11 @@ import React from "react";
 
 interface DetailsTypes extends BookType{
   setDetailed:React.Dispatch<React.SetStateAction<number|null>>,
-  length:number
+  length:number,
+  index: number
 }
 
-export function Details({cover, title, authors, description, setDetailed, length}: DetailsTypes) {
+export function Details({cover, title, authors, description, setDetailed, length, index}: DetailsTypes) {
   function handleArrowUp() {
     setDetailed(prevState => {
       const newValue = prevState! -1;
@@ -41,8 +42,8 @@ export function Details({cover, title, authors, description, setDetailed, length
         <section className={styles.top}>
           <nav
             className={styles.nav}>
-            <IoArrowUpCircleOutline onClick={handleArrowUp}/>
-            <IoArrowDownCircleOutline onClick={handleArrowDown}/>
+            <IoArrowUpCircleOutline onClick={handleArrowUp} className={index===0?styles.inactive:undefined}/>
+            <IoArrowDownCircleOutline onClick={handleArrowDown} className={index===length-1?styles.inactive:undefined}/>
           </nav>
           {<Book3D cover={cover}/>}
           <div

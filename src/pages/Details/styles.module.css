@@ -22,6 +22,9 @@
         font-size: 3rem;
         >svg{
             cursor: pointer;
+            &.inactive{
+                filter: opacity(.3);
+            }
         }
     }
 
