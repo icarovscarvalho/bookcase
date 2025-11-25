@@ -34,7 +34,9 @@ export async function getBookList(list: string[], maxResult:number) {
 export async function getBestSellersShelf() {
   console.log(googleBooksFetchBestSellersURL)
   try {
-    const rawData = await fetch(`${googleBooksFetchBestSellersURL}`);
+    const rawData = await fetch(`https://www.googleapis.com/books/v1/volumes?q=Harry&maxResults=4`);
+    // const rawData = await fetch(`${googleBooksFetchBestSellersURL}`); // Endereço da API não está funcionando
+    // verificar novo endereço para busca de best-sellers ou nova API
     const jsonData = await rawData.json();
     console.log(jsonData);
     const list = jsonData.items;
